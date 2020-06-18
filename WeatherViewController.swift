@@ -53,7 +53,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             weatherDataModel.temperature = Int(((tempResult - 273.15)*(9/5))+32)
             print(tempResult)
             weatherDataModel.city = json["name"].stringValue
-            weatherDataModel.condition = json["Weather"][0]["id"].intValue
+            weatherDataModel.condition = json["weather"][0]["id"].intValue
+            print(weatherDataModel.condition)
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
             updateUIWithWeatherData()
         }
